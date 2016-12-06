@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h1> Welcome to your Website!  </h1>
+        <img src ="http://www.brahmakumarismalaysia.org/communities/3/004/013/050/393//images/4622278961_977x296.jpg" /><br /> <br/> 
+        
+         <%--<a href="Home.aspx"> Home </a> <br />
+        <a href="Search.aspx"> Search </a> <br />
+        <a href="Recepies.aspx"> Recepies </a> <br />  
+        <a href="Add Recepies.aspx"> Add Recepies </a> <br /> --%>
+
+
+      <%--  <asp:Menu ID="navMenu" runat="server" 
+                    BackColor="#007FFF" BorderColor="#0066CC"
+                    StaticMenuItemStyle-ForeColor="#FFFFFF" 
+                    StaticMenuItemStyle-VerticalPadding="10px"
+                    StaticMenuItemStyle-HorizontalPadding="10px"
+                    RenderingMode="List" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Home" NavigateUrl="Home.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Search" NavigateUrl="Search.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Add Recepies" NavigateUrl="Add Recepies.aspx"></asp:MenuItem>
+                        
+                    </Items>
+                </asp:Menu> --%>
+
+        <asp:LoginView ID="LoginView1" runat="server">
+                <AnonymousTemplate>
+                    <%-- <asp:Menu Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="50" StaticMenuItemStyle-CssClass="menuitems"  runat="server"> --%>
+                    <asp:Menu ID="navMenu" runat="server" 
+                    BackColor="#007FFF" BorderColor="#0066CC"
+                    StaticMenuItemStyle-ForeColor="#FFFFFF" 
+                    StaticMenuItemStyle-VerticalPadding="10px"
+                    StaticMenuItemStyle-HorizontalPadding="10px"
+                    RenderingMode="List" Orientation="Horizontal">
+                       <Items>
+                           <asp:MenuItem  Text="HOME" NavigateUrl="Home.aspx">
+                           </asp:MenuItem>
+                           <asp:MenuItem Text="SEARCH" NavigateUrl="Search.aspx"></asp:MenuItem>
+                           <asp:MenuItem Text="ADD" NavigateUrl="Add Recepies.aspx"></asp:MenuItem>
+
+                       </Items>
+                    </asp:Menu>
+                    <asp:LoginStatus ID="LoginStatus1"  CssClass="LoginName" runat="server" />
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                     <%--<asp:Menu Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="50" StaticMenuItemStyle-CssClass="menuitems"  runat="server"> --%>
+                    <asp:Menu ID="navMenu" runat="server" 
+                    BackColor="#007FFF" BorderColor="#0066CC"
+                    StaticMenuItemStyle-ForeColor="#FFFFFF" 
+                    StaticMenuItemStyle-VerticalPadding="10px"
+                    StaticMenuItemStyle-HorizontalPadding="10px"
+                    RenderingMode="List" Orientation="Horizontal">
+                       <Items>
+                           <asp:MenuItem  Text="HOME" NavigateUrl="Home.aspx">
+                           </asp:MenuItem>
+                           <asp:MenuItem Text="SEARCH" NavigateUrl="Search.aspx"></asp:MenuItem>
+                           <asp:MenuItem Text="ADD" NavigateUrl="Add Recepies.aspx"></asp:MenuItem>
+                       </Items>
+                    </asp:Menu>
+                    <asp:LoginStatus CssClass="LoginName" ID="LoginStatus1" runat="server" />                      
+                      <asp:LoginName  CssClass="LoginName" ID="LoginName1" runat="server" FormatString="Hello, {0}!" />
+                </LoggedInTemplate>
+
+
+
+                 <RoleGroups>
+                    <asp:RoleGroup Roles="Admin">
+                        <ContentTemplate>
+                               <asp:Menu ID="navMenu" runat="server" 
+                    BackColor="#007FFF" BorderColor="#0066CC"
+                    StaticMenuItemStyle-ForeColor="#FFFFFF" 
+                    StaticMenuItemStyle-VerticalPadding="10px"
+                    StaticMenuItemStyle-HorizontalPadding="10px"
+                    RenderingMode="List" Orientation="Horizontal">
+                       <Items>
+                           <asp:MenuItem  Text="MANAGEMENT" NavigateUrl="UserManage.aspx">
+                           </asp:MenuItem>
+                           <asp:MenuItem Text="HOME" NavigateUrl="Home.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="SEARCH" NavigateUrl="Search.aspx"></asp:MenuItem>
+                           <asp:MenuItem Text="ADD" NavigateUrl="Add Recepies.aspx"></asp:MenuItem>
+                       </Items>
+                    </asp:Menu>
+                    <asp:LoginStatus ID="LoginStatus1"  CssClass="LoginName" runat="server" />
+            
+                         
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                </RoleGroups>
+
+
+
+            </asp:LoginView>
+         
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
